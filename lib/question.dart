@@ -1,21 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/src/widgets/placeholder.dart';
 
-class Answer extends StatelessWidget {
-  final VoidCallback selectHander;
-  String answerText;
+import 'package:flutter/material.dart';
 
-  Answer(this.selectHander, this.answerText);
+class Question extends StatelessWidget {
+  final String questionText;
+
+  Question(this.questionText);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      child: ElevatedButton(
-        onPressed: selectHander,
-        style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(Colors.indigo),
-        ),
-        child: Text(answerText),
+      margin: EdgeInsets.all(10),
+      // color: Color(	00),
+      child: Text(
+        questionText,
+        style: TextStyle(fontSize: 28),
+        textAlign: TextAlign.center,
       ),
     );
   }
