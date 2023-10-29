@@ -1,19 +1,22 @@
 import 'package:flutter/material.dart';
 
-class Question extends StatelessWidget {
-  final String questionText;
+class Answer extends StatelessWidget {
+  final VoidCallback selectHander;
+  String answerText;
 
-  Question(this.questionText, param1);
+  Answer(this.selectHander, this.answerText);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-        width: double.infinity,
-        margin: EdgeInsets.all(10),
-        child: Text(
-          questionText,
-          style: TextStyle(fontSize: 28),
-          textAlign: TextAlign.center,
-        ));
+      width: double.infinity,
+      child: ElevatedButton(
+        onPressed: selectHander,
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all(Colors.indigo),
+        ),
+        child: Text(answerText),
+      ),
+    );
   }
 }
